@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BD B Touch 💕 | Anniversary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .heart-float {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            color: #f9a8d4; /* pink-300 */
+            opacity: 0;
+            animation: float-up var(--duration) linear infinite;
+            animation-delay: var(--delay);
+        }
+
+        @keyframes float-up {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .modal-overlay {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            display: none;
+            z-index: 100;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .card-actions {
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .group:hover .card-actions {
+            opacity: 1;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff1f2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #fda4af;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-rose-50 to-pink-100 text-gray-800 min-h-screen overflow-x-hidden">
+
+    <div id="heart-container"></div>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex flex-col items-center justify-center text-center px-4 z-10">
+        <div class="relative mb-8">
+            <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-8 border-white shadow-2xl mx-auto ring-4 ring-pink-200">
+                <img src="images/image1.jpg" onerror="this.src='https://images.unsplash.com/photo-1518568814520-70651462fe66?auto=format&fit=crop&q=80'" alt="Special Person" class="w-full h-full object-cover">
+            </div>
+            <div class="absolute -top-4 -right-4 bg-white p-3 rounded-full shadow-lg text-pink-500 animate-pulse">
+                <i data-lucide="heart" fill="currentColor"></i>
+            </div>
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-bold text-rose-600 mb-6 drop-shadow-sm">BD B Touch 💕</h1>
+
+        <div class="glass-card px-8 py-6 rounded-[2rem] shadow-xl border border-pink-100 max-w-sm w-full md:max-w-none md:w-auto">
+            <p class="text-xs uppercase tracking-widest text-pink-400 font-semibold mb-3">Countdown to your day</p>
+            <div class="flex gap-4 md:gap-10 justify-center items-center">
+                <div class="flex flex-col"><span id="days" class="text-3xl md:text-5xl font-black text-rose-500 tabular-nums">00</span><span class="text-xs text-gray-400 font-bold">DAYS</span></div>
+                <div class="flex flex-col"><span id="hours" class="text-3xl md:text-5xl font-black text-rose-500 tabular-nums">00</span><span class="text-xs text-gray-400 font-bold">HRS</span></div>
+                <div class="flex flex-col"><span id="mins" class="text-3xl md:text-5xl font-black text-rose-500 tabular-nums">00</span><span class="text-xs text-gray-400 font-bold">MIN</span></div>
+                <div class="flex flex-col"><span id="secs" class="text-3xl md:text-5xl font-black text-rose-500 tabular-nums">00</span><span class="text-xs text-gray-400 font-bold">SEC</span></div>
+            </div>
+        </div>
+
+        <p class="mt-8 text-rose-400 font-medium italic">Target Date: 01/02/2026 Sun</p>
+        <div class="absolute bottom-10 animate-bounce text-rose-300">
+            <i data-lucide="clock" size="32"></i>
+        </div>
+    </section>
+
+    <!-- Journey Stats -->
+    <section class="max-w-4xl mx-auto px-6 mb-20 relative z-10">
+        <div class="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-rose-50 overflow-hidden relative">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-rose-50 rounded-bl-full -mr-10 -mt-10"></div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-10">
+                <div class="flex -space-x-6">
+                    <div class="w-24 h-24 rounded-full border-4 border-white shadow-lg overflow-hidden ring-4 ring-pink-100">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80" alt="Rea" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-24 h-24 rounded-full border-4 border-white shadow-lg overflow-hidden ring-4 ring-pink-100">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80" alt="Touch" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <div class="flex-1 text-center md:text-left">
+                    <h2 class="text-xl font-bold text-gray-600 mb-2 italic">"New chapter with you"</h2>
+                    <div class="space-y-1">
+                        <p id="journey-text" class="text-3xl md:text-5xl font-black text-rose-500">
+                            0 Months 0 Days
+                        </p>
+                        <p class="text-gray-400 font-medium">Since 03/11/2025 Mon</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Special Person Section -->
+    <section class="max-w-6xl mx-auto px-6 mb-20 relative z-10">
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4">
+            <div>
+                <h2 class="text-3xl font-bold text-gray-800 flex items-center gap-3">
+                    <i data-lucide="user" class="text-rose-500"></i> My Special Person
+                </h2>
+                <p class="text-gray-500">Dedicated to the one who makes life beautiful</p>
+            </div>
+            <button onclick="openAddModal('special-person-grid')" class="flex items-center justify-center gap-2 bg-rose-500 hover:bg-rose-600 text-white px-8 py-4 rounded-2xl shadow-lg transition-all transform hover:scale-105 active:scale-95 font-bold">
+                <i data-lucide="plus" size="20"></i> Add Person
+            </button>
+        </div>
+
+        <div id="special-person-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"></div>
+    </section>
+
+    <!-- Photo Gallery: Our Memories -->
+    <section class="max-w-6xl mx-auto px-6 mb-20 relative z-10">
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4">
+            <div>
+                <h2 class="text-3xl font-bold text-gray-800 flex items-center gap-3">
+                    <i data-lucide="camera" class="text-rose-500"></i> Our Memories
+                </h2>
+                <p class="text-gray-500">Every step of our beautiful journey together</p>
+            </div>
+            <button onclick="openAddModal('gallery-grid')" class="flex items-center justify-center gap-2 bg-rose-500 hover:bg-rose-600 text-white px-8 py-4 rounded-2xl shadow-lg transition-all transform hover:scale-105 active:scale-95 font-bold">
+                <i data-lucide="plus" size="20"></i> Add Memory
+            </button>
+        </div>
+
+        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </section>
+
+    <!-- Love Letter Section -->
+    <section class="max-w-4xl mx-auto px-6 mb-20 relative z-10">
+        <div class="bg-rose-500 text-white rounded-[2.5rem] p-10 shadow-2xl relative overflow-hidden group">
+            <!-- Edit Button for Message -->
+            <button onclick="openMessageEditModal()" class="absolute top-6 right-6 z-20 bg-white/20 p-2 rounded-xl text-white hover:bg-white/40 opacity-0 group-hover:opacity-100 transition-all shadow-lg border border-white/30">
+                <i data-lucide="pencil" size="20"></i>
+            </button>
+
+            <div class="absolute -bottom-10 -left-10 text-rose-400 opacity-30 w-64 h-64">
+                <i data-lucide="message-circle-heart" style="width: 100%; height: 100%;"></i>
+            </div>
+            <div class="relative z-10">
+                <i data-lucide="star" class="text-yellow-300 mb-6 fill-yellow-300"></i>
+                <h3 class="text-3xl font-bold mb-6">A Message For You</h3>
+                <p id="display-message" class="text-lg leading-relaxed mb-8 opacity-95">
+                    "Every day with you feels like a beautiful dream come true. From the small laughs to the big adventures, 
+                    you make my world brighter. On this special day, I want to remind you how much you mean to me. 
+                    You are my favorite person, my best friend, and my everything. Happy special day to the one who holds my heart."
+                </p>
+                <div class="flex items-center gap-4">
+                    <div class="h-[2px] w-12 bg-rose-300"></div>
+                    <p id="display-signature" class="font-serif italic text-2xl">Forever Yours, Rea 💕</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Photo Modal -->
+    <div id="modal" class="modal-overlay fixed inset-0 z-[100] items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-[2.5rem] p-8 shadow-2xl relative animate-in zoom-in-95 duration-200">
+            <button onclick="toggleModal(false)" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600">
+                <i data-lucide="x" size="24"></i>
+            </button>
+            <h4 class="text-2xl font-bold text-gray-800 mb-6 text-center" id="modal-title">New Memory</h4>
+            <div class="space-y-6">
+                <input id="photo-caption" type="text" placeholder="Caption..." class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl px-6 py-4 outline-none focus:border-rose-300 transition-colors">
+                <div onclick="document.getElementById('file-input').click()" class="w-full aspect-video border-4 border-dashed border-rose-100 rounded-3xl flex flex-col items-center justify-center cursor-pointer hover:bg-rose-50 transition-colors">
+                    <i data-lucide="camera" class="text-rose-300 mb-3" size="48"></i>
+                    <p class="text-rose-400 font-bold">Choose Image</p>
+                    <input id="file-input" type="file" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Caption Modal (for Gallery Cards) -->
+    <div id="edit-modal" class="modal-overlay fixed inset-0 z-[100] items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-[2.5rem] p-8 shadow-2xl relative">
+            <button onclick="toggleEditModal(false)" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600"><i data-lucide="x"></i></button>
+            <h4 class="text-2xl font-bold text-gray-800 mb-6 text-center">Edit Caption</h4>
+            <div class="space-y-6">
+                <input id="edit-caption-input" type="text" placeholder="New caption..." class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl px-6 py-4 outline-none">
+                <button onclick="saveEdit()" class="w-full bg-rose-500 text-white font-bold py-4 rounded-2xl hover:bg-rose-600 transition-all">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Message Modal -->
+    <div id="edit-message-modal" class="modal-overlay fixed inset-0 z-[100] items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-[2.5rem] p-8 shadow-2xl relative">
+            <button onclick="toggleMessageEditModal(false)" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600"><i data-lucide="x"></i></button>
+            <h4 class="text-2xl font-bold text-gray-800 mb-6 text-center">Edit Special Message</h4>
+            <div class="space-y-6">
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase mb-2">The Message</label>
+                    <textarea id="edit-message-input" rows="5" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl px-6 py-4 outline-none focus:border-rose-300 transition-all resize-none"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Signature</label>
+                    <input id="edit-signature-input" type="text" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl px-6 py-4 outline-none focus:border-rose-300 transition-all">
+                </div>
+                <button onclick="saveMessageEdit()" class="w-full bg-rose-500 text-white font-bold py-4 rounded-2xl hover:bg-rose-600 transition-all">Update Letter</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-10 opacity-60 relative z-10">
+        <p class="text-sm font-medium flex items-center justify-center gap-2">
+            Made with <i data-lucide="heart" class="text-rose-500 fill-rose-500" size="14"></i> for Touch
+        </p>
+        <p class="text-xs mt-1">© 2026 Forever & Always</p>
+    </footer>
+
+    <script>
+        let currentTargetGrid = 'gallery-grid';
+        let currentEditingElement = null;
+
+        // Configuration
+        const startDate = new Date('2025-11-03');
+        const targetDate = new Date('2026-02-01T00:00:00');
+
+        // Card HTML Template
+        function createCardHtml(imgSrc, caption, fallbackId) {
+            const fallback = `https://images.unsplash.com/photo-${1518199266791 + (fallbackId || 0)}-5375a83190b7?auto=format&fit=crop&q=60`;
+            return `
+                <div class="bg-white p-4 rounded-3xl shadow-xl border border-white group relative transition-all hover:shadow-2xl animate-in fade-in zoom-in duration-500">
+                    <div class="card-actions absolute top-6 right-6 z-20 flex gap-2">
+                        <button onclick="openEditModal(this)" class="bg-white/90 p-2 rounded-xl text-blue-500 hover:bg-white shadow-md transition-all">
+                            <i data-lucide="pencil" size="18"></i>
+                        </button>
+                        <button onclick="deleteCard(this)" class="bg-white/90 p-2 rounded-xl text-rose-500 hover:bg-white shadow-md transition-all">
+                            <i data-lucide="trash-2" size="18"></i>
+                        </button>
+                    </div>
+                    <div class="aspect-square rounded-2xl overflow-hidden mb-4 relative">
+                        <img src="${imgSrc}" onerror="this.src='${fallback}'" class="w-full h-full object-cover transform group-hover:scale-110 transition-duration-500">
+                        <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <p class="caption-text text-gray-600 font-medium italic text-center px-2">"${caption}"</p>
+                </div>
+            `;
+        }
+
+        // Initialize with default images
+        function initGalleries() {
+            const specialGrid = document.getElementById('special-person-grid');
+            const ourGrid = document.getElementById('gallery-grid');
+            
+            const specialCaptions = ["You are my world", "Pure elegance", "The prettiest smile", "Simply perfect", "My forever person", "Thinking of you", "Your light", "True beauty", "Sweetest soul", "Always in my heart", "My favorite person", "Incredible you", "Forever 💕"];
+            const ourCaptions = ["Where it all began", "Sweet smiles", "Our favorite spot", "Quiet moments", "Golden hour together", "Adventure awaits", "Laughter is better", "Holding hands", "Beautiful day", "Heart to heart", "Pure happiness", "Special celebration", "Your light", "Memory made", "Forever vibes", "Perfect timing", "Love in the air", "Favorite view", "Countless laughs", "Simple joys", "You & Me", "Our little world", "Sweet soul", "Cherished", "Better together", "Forever 💕"];
+
+            for (let i = 1; i <= 13; i++) {
+                specialGrid.insertAdjacentHTML('beforeend', createCardHtml(`images/image${i}.jpg`, specialCaptions[i-1] || "Beautiful You", i));
+            }
+            for (let i = 1; i <= 26; i++) {
+                ourGrid.insertAdjacentHTML('beforeend', createCardHtml(`images/our/${i}.jpg`, ourCaptions[i-1] || "Our Memory", i + 13));
+            }
+            lucide.createIcons();
+        }
+
+        // Upload Logic (Simulating Upload to /images/ folder)
+        async function uploadToServer(file) {
+            const formData = new FormData();
+            formData.append('image', file);
+            console.log("Preparing to upload to images folder via FormData...");
+            return null; 
+        }
+
+        async function handleImageUpload(event) {
+            const file = event.target.files[0];
+            const caption = document.getElementById('photo-caption').value || 'New Memory';
+            
+            if (file) {
+                await uploadToServer(file);
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const grid = document.getElementById(currentTargetGrid);
+                    grid.insertAdjacentHTML('afterbegin', createCardHtml(e.target.result, caption, 99));
+                    toggleModal(false);
+                    lucide.createIcons();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Gallery Management Functions
+        function deleteCard(btn) {
+            const card = btn.closest('.group');
+            card.style.transform = 'scale(0.8)';
+            card.style.opacity = '0';
+            setTimeout(() => card.remove(), 300);
+        }
+
+        function openEditModal(btn) {
+            currentEditingElement = btn.closest('.group').querySelector('.caption-text');
+            document.getElementById('edit-caption-input').value = currentEditingElement.innerText.replace(/"/g, '');
+            toggleEditModal(true);
+        }
+
+        function saveEdit() {
+            const newText = document.getElementById('edit-caption-input').value;
+            if (currentEditingElement) {
+                currentEditingElement.innerText = `"${newText}"`;
+            }
+            toggleEditModal(false);
+        }
+
+        // Message Editing Functions
+        function openMessageEditModal() {
+            const msg = document.getElementById('display-message').innerText.replace(/^"|"$/g, '').trim();
+            const sig = document.getElementById('display-signature').innerText;
+            document.getElementById('edit-message-input').value = msg;
+            document.getElementById('edit-signature-input').value = sig;
+            toggleMessageEditModal(true);
+        }
+
+        function saveMessageEdit() {
+            const newMsg = document.getElementById('edit-message-input').value;
+            const newSig = document.getElementById('edit-signature-input').value;
+            
+            document.getElementById('display-message').innerText = `"${newMsg}"`;
+            document.getElementById('display-signature').innerText = newSig;
+            
+            toggleMessageEditModal(false);
+        }
+
+        // UI Helpers
+        function openAddModal(gridId) {
+            currentTargetGrid = gridId;
+            const title = gridId === 'special-person-grid' ? 'Add Person' : 'New Memory';
+            document.getElementById('modal-title').innerText = title;
+            toggleModal(true);
+        }
+
+        function toggleModal(show) { document.getElementById('modal').classList.toggle('active', show); if(!show) document.getElementById('photo-caption').value = ''; }
+        function toggleEditModal(show) { document.getElementById('edit-modal').classList.toggle('active', show); }
+        function toggleMessageEditModal(show) { document.getElementById('edit-message-modal').classList.toggle('active', show); }
+
+        function updateCounters() {
+            const now = new Date();
+            const diffTime = Math.abs(now - startDate);
+            const totalDays = Math.ceil(diffTime / 86400000);
+            document.getElementById('journey-text').innerText = `${Math.floor(totalDays/30)} Months ${totalDays%30} Days`;
+            const distance = targetDate - now;
+            if (distance > 0) {
+                document.getElementById('days').innerText = Math.floor(distance / 86400000).toString().padStart(2, '0');
+                document.getElementById('hours').innerText = Math.floor((distance % 86400000) / 3600000).toString().padStart(2, '0');
+                document.getElementById('mins').innerText = Math.floor((distance % 3600000) / 60000).toString().padStart(2, '0');
+                document.getElementById('secs').innerText = Math.floor((distance % 60000) / 1000).toString().padStart(2, '0');
+            }
+        }
+
+        function createHearts() {
+            const container = document.getElementById('heart-container');
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-float';
+                heart.innerHTML = '<i data-lucide="heart" fill="currentColor"></i>';
+                heart.style.setProperty('--duration', `${10 + Math.random() * 15}s`);
+                heart.style.setProperty('--delay', `${Math.random() * 20}s`);
+                heart.style.left = `${Math.random() * 100}vw`;
+                const size = 15 + Math.random() * 25;
+                heart.style.width = heart.style.height = `${size}px`;
+                container.appendChild(heart);
+            }
+            lucide.createIcons();
+        }
+
+        window.onload = () => { createHearts(); initGalleries(); updateCounters(); setInterval(updateCounters, 1000); };
+    </script>
+</body>
+</html>
