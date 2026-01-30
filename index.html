@@ -84,7 +84,7 @@
             </div>
         </div>
 
-        <h1 class="text-4xl md:text-6xl font-bold text-rose-600 mb-6 drop-shadow-sm">BD B Touch 💕</h1>
+        <h1 class="text-4xl md:text-6xl font-bold text-rose-600 mb-6 drop-shadow-sm">BD B Touch 🌸💖💕</h1>
 
         <div class="glass-card px-8 py-6 rounded-[2rem] shadow-xl border border-pink-100 max-w-sm w-full md:max-w-none md:w-auto">
             <p class="text-xs uppercase tracking-widest text-pink-400 font-semibold mb-3">Countdown to your day</p>
@@ -110,10 +110,10 @@
             <div class="flex flex-col md:flex-row items-center gap-10">
                 <div class="flex -space-x-6">
                     <div class="w-24 h-24 rounded-full border-4 border-white shadow-lg overflow-hidden ring-4 ring-pink-100">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80" alt="Rea" class="w-full h-full object-cover">
+                        <img src="/images/our/15.jpg" alt="Rea" class="w-full h-full object-cover">
                     </div>
                     <div class="w-24 h-24 rounded-full border-4 border-white shadow-lg overflow-hidden ring-4 ring-pink-100">
-                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80" alt="Touch" class="w-full h-full object-cover">
+                        <img src="/images/our/17.jpg" alt="Touch" class="w-full h-full object-cover">
                     </div>
                 </div>
 
@@ -179,9 +179,7 @@
                 <i data-lucide="star" class="text-yellow-300 mb-6 fill-yellow-300"></i>
                 <h3 class="text-3xl font-bold mb-6">A Message For You</h3>
                 <p id="display-message" class="text-lg leading-relaxed mb-8 opacity-95">
-                    "Every day with you feels like a beautiful dream come true. From the small laughs to the big adventures, 
-                    you make my world brighter. On this special day, I want to remind you how much you mean to me. 
-                    You are my favorite person, my best friend, and my everything. Happy special day to the one who holds my heart."
+                    "Happy Birthday! Your dedication, passion, and strength inspire me every single day. I hope this new year brings you success, happiness, and moments of rest you truly deserve. May 01/02/2026 be a year full of blessings and smiles for you 💫🎂❤️"
                 </p>
                 <div class="flex items-center gap-4">
                     <div class="h-[2px] w-12 bg-rose-300"></div>
@@ -285,10 +283,10 @@
             const specialCaptions = ["You are my world", "Pure elegance", "The prettiest smile", "Simply perfect", "My forever person", "Thinking of you", "Your light", "True beauty", "Sweetest soul", "Always in my heart", "My favorite person", "Incredible you", "Forever 💕"];
             const ourCaptions = ["Where it all began", "Sweet smiles", "Our favorite spot", "Quiet moments", "Golden hour together", "Adventure awaits", "Laughter is better", "Holding hands", "Beautiful day", "Heart to heart", "Pure happiness", "Special celebration", "Your light", "Memory made", "Forever vibes", "Perfect timing", "Love in the air", "Favorite view", "Countless laughs", "Simple joys", "You & Me", "Our little world", "Sweet soul", "Cherished", "Better together", "Forever 💕"];
 
-            for (let i = 1; i <= 13; i++) {
+            for (let i = 1; i <= 12; i++) {
                 specialGrid.insertAdjacentHTML('beforeend', createCardHtml(`images/image${i}.jpg`, specialCaptions[i-1] || "Beautiful You", i));
             }
-            for (let i = 1; i <= 26; i++) {
+            for (let i = 1; i <= 24; i++) {
                 ourGrid.insertAdjacentHTML('beforeend', createCardHtml(`images/our/${i}.jpg`, ourCaptions[i-1] || "Our Memory", i + 13));
             }
             lucide.createIcons();
